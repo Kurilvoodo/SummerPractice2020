@@ -9,7 +9,7 @@ using ShareMate.DAO.Interfaces;
 using ShareMate.DAL;
 using Ninject.Modules;
 
-namespace ShareMate.DependencyResolver
+namespace ShareMate.Ioc
 {
     public class NinjectBindings :NinjectModule
     {

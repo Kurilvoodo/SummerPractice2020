@@ -55,14 +55,14 @@ namespace ShareMate.DAL
                 };
                 command.Parameters.Add(fileNameParameter);
 
-                var uploadedByParameter = new SqlParameter()
+                var ownerIdParameter = new SqlParameter()
                 {
-                    DbType = DbType.String,
-                    ParameterName = "@UploaderName",
-                    Value = file.UploadedBy,
+                    DbType = DbType.Int32,
+                    ParameterName = "@OwnerId",
+                    Value = file.OwnerId,
                     Direction = ParameterDirection.Input
                 };
-                command.Parameters.Add(uploadedByParameter);
+                command.Parameters.Add(ownerIdParameter);
 
                 connection.Open();
                 command.ExecuteNonQuery();

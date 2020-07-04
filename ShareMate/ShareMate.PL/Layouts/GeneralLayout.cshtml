@@ -1,0 +1,48 @@
+﻿@using ShareMate.Entities
+@using ShareMate.BLL.Interfaces
+@using ShareMate.Ioc
+@using Ninject
+@{
+    Layout = null;
+    var userLogic = DependencyResolver.Kernel.Get<IUserLogic>();
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+    <link href="~/Styles/Style.css" rel="stylesheet"/>
+</head>
+<body>
+    <div>
+        <header>
+            @RenderSection("Header")
+            
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a href="~/Pages/" class="menu-element"></a>
+                User user = userLogic.GetUserByUsername(User.Identity.Name);
+                <div class="menu-element">
+                    @User.Identity.Name 
+                </div>
+            }
+            else
+            {
+                <a href="~/Pages/Login/Authorization.cshtml" class="menu-element">Login</a>
+            }
+        </header>
+
+    </div>
+    <div class="content">
+        @RenderBody()
+        <a href="~/Pages/" class="menu-element">My Files</a>
+        <a href="~/Pages/" class="menu-element">File Request</a>
+        <a href="~/Pages/" class="menu-element">Search</a>
+        <a href="~/Pages/" class="menu-element">Share File</a>
+        <a href="~/Pages/" class="menu-element">Upload</a>
+        <a href="~/Pages/" class="menu-element">Logout</a>
+    </div>
+</body>
+</html>

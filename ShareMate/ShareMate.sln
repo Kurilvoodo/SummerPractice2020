@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShareMate.DAL", "ShareMate.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShareMate.Ioc", "ShareMate.DependencyResolver\ShareMate.Ioc.csproj", "{042A0195-2439-4E76-A38F-24D3C0B9C9E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShareMate.PL", "ShareMate.PL\ShareMate.PL.csproj", "{F58B7B9D-BB1C-4771-BBBE-E06B1446CD5C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{042A0195-2439-4E76-A38F-24D3C0B9C9E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{042A0195-2439-4E76-A38F-24D3C0B9C9E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{042A0195-2439-4E76-A38F-24D3C0B9C9E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F58B7B9D-BB1C-4771-BBBE-E06B1446CD5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F58B7B9D-BB1C-4771-BBBE-E06B1446CD5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F58B7B9D-BB1C-4771-BBBE-E06B1446CD5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F58B7B9D-BB1C-4771-BBBE-E06B1446CD5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
