@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShareMate.Entities", "ShareMate.Entities\ShareMate.Entities.csproj", "{C9AE2959-EB38-49D8-AD06-1A411538EFC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShareMate.BLL.Interfaces", "ShareMate.BLL.Interfaces\ShareMate.BLL.Interfaces.csproj", "{33AF990A-617D-4946-9DF0-809BD93DCF25}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShareMate.BLL", "ShareMate.BLL\ShareMate.BLL.csproj", "{D0ECAA34-8D3E-42EE-BBE9-B87021C1ABDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShareMate.DAO.Interfaces", "ShareMate.DAO.Interfaces\ShareMate.DAO.Interfaces.csproj", "{837148BC-4E6C-4F6B-8EEB-F6B167FDEC02}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShareMate.DAL", "ShareMate.DAL\ShareMate.DAL.csproj", "{D42B2201-2635-4BB4-B59E-A47B3657564C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShareMate.Ioc", "ShareMate.DependencyResolver\ShareMate.Ioc.csproj", "{042A0195-2439-4E76-A38F-24D3C0B9C9E9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9AE2959-EB38-49D8-AD06-1A411538EFC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9AE2959-EB38-49D8-AD06-1A411538EFC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9AE2959-EB38-49D8-AD06-1A411538EFC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9AE2959-EB38-49D8-AD06-1A411538EFC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33AF990A-617D-4946-9DF0-809BD93DCF25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33AF990A-617D-4946-9DF0-809BD93DCF25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33AF990A-617D-4946-9DF0-809BD93DCF25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33AF990A-617D-4946-9DF0-809BD93DCF25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0ECAA34-8D3E-42EE-BBE9-B87021C1ABDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0ECAA34-8D3E-42EE-BBE9-B87021C1ABDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0ECAA34-8D3E-42EE-BBE9-B87021C1ABDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0ECAA34-8D3E-42EE-BBE9-B87021C1ABDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{837148BC-4E6C-4F6B-8EEB-F6B167FDEC02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{837148BC-4E6C-4F6B-8EEB-F6B167FDEC02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{837148BC-4E6C-4F6B-8EEB-F6B167FDEC02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{837148BC-4E6C-4F6B-8EEB-F6B167FDEC02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D42B2201-2635-4BB4-B59E-A47B3657564C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D42B2201-2635-4BB4-B59E-A47B3657564C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D42B2201-2635-4BB4-B59E-A47B3657564C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D42B2201-2635-4BB4-B59E-A47B3657564C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{042A0195-2439-4E76-A38F-24D3C0B9C9E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{042A0195-2439-4E76-A38F-24D3C0B9C9E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{042A0195-2439-4E76-A38F-24D3C0B9C9E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{042A0195-2439-4E76-A38F-24D3C0B9C9E9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {38886FB1-3ECF-4648-AAF6-16C4CDC06457}
+	EndGlobalSection
+EndGlobal
