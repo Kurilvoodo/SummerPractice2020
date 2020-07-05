@@ -12,37 +12,43 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title></title>
-    <link href="~/Styles/Style.css" rel="stylesheet"/>
+    <title>ShareMate</title>
+    <link href="~/Styles/Style.css" rel="stylesheet" />
 </head>
 <body>
     <div>
         <header>
             @RenderSection("Header")
             
+            <h1 class="h1-title">ShareMate.com</h1>
             @if (User.Identity.IsAuthenticated)
             {
                 <a href="~/Pages/" class="menu-element"></a>
                 User user = userLogic.GetUserByUsername(User.Identity.Name);
                 <div class="menu-element">
-                    @User.Identity.Name 
+                    @User.Identity.Name
                 </div>
             }
             else
             {
-                <a href="~/Pages/Login/Authorization.cshtml" class="menu-element">Login</a>
+                <a href="~/Pages/Login/Authorization.cshtml" class="login-element">Login</a>
             }
         </header>
 
     </div>
     <div class="content">
-        @RenderBody()
-        <a href="~/Pages/" class="menu-element">My Files</a>
-        <a href="~/Pages/" class="menu-element">File Request</a>
-        <a href="~/Pages/" class="menu-element">Search</a>
-        <a href="~/Pages/" class="menu-element">Share File</a>
-        <a href="~/Pages/" class="menu-element">Upload</a>
-        <a href="~/Pages/" class="menu-element">Logout</a>
+        <div class="content-conteiner">
+            <a href="~/Pages/" class="menu-element">Logout</a>
+            <a href="~/Pages/" class="menu-element">Share File</a>
+            <a href="~/Pages/" class="menu-element">Upload</a>
+            <a href="~/Pages/" class="menu-element">Search</a>
+            <a href="~/Pages/" class="menu-element">File Request</a>
+            <a href="~/Pages/" class="menu-element">My Files</a>
+        </div>
+        <div class="usability-content">
+            @RenderBody()
+        </div>
+        
     </div>
 </body>
 </html>

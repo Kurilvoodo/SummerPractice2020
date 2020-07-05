@@ -1,0 +1,29 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title class="h1-login">Authorization</title>
+    <link href="~/Styles/Login.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content">
+        <div class="container-for-buttons">
+            <h1 class="h1-login">Welcome to our file sharing service</h1>
+            <form action="~/Pages/Login/SignIn.cshtml" method="post" enctype="multipart/form-data">
+                <button type="submit" class="button-sign-in">Sign in</button>
+            </form>
+            <form action="~/Pages/Login/SignUp.cshtml" method="post" enctype="multipart/form-data">
+                <button type="submit" class="button-sign-up">Sign up</button>
+            </form>
+            <form action="~/index.cshtml" method="post" enctype="multipart/form-data">
+                <button type="submit" class="button-sign-in">Back to main page</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

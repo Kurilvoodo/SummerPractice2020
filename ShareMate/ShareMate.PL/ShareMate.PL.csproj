@@ -102,6 +102,7 @@
     <Content Include="Layouts\GeneralLayout.cshtml" />
     <Content Include="index.cshtml" />
     <None Include="packages.config" />
+    <Content Include="Pages\Login\Authorization.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -109,9 +110,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\Login\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ShareMate.BLL.Interfaces\ShareMate.BLL.Interfaces.csproj">
       <Project>{33af990a-617d-4946-9df0-809bd93dcf25}</Project>
