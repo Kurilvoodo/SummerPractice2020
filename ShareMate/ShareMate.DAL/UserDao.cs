@@ -11,7 +11,7 @@ namespace ShareMate.DAL
 {
     public class UserDao : IUserDao
     {
-        private string _connectionString = @"Data Source";
+        private string _connectionString = @"Data Source=DESKTOP-QALPV5U\SQLEXPRESS;Initial Catalog=ShareMate;Integrated Security=True";
         public void Add(User user)
         {
             using (var connection = new SqlConnection(_connectionString))

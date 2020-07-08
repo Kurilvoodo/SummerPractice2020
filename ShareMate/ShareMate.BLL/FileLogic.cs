@@ -16,6 +16,12 @@ namespace ShareMate.BLL
         {
             _fileDao = fileDao;
         }
+
+        public File GetFileById(int id)
+        {
+            return _fileDao.GetFileById(id);
+        }
+
         public void Remove(int id)
         {
             _fileDao.Remove(id);

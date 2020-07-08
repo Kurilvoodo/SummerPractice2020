@@ -1,6 +1,7 @@
 ﻿@using ShareMate.Entities
-@using ShareMate.BLL
+@using ShareMate.BLL.Interfaces
 @using ShareMate.Ioc
+@using Ninject
 @using ShareMate
 @{
     Layout = null;
@@ -50,6 +51,20 @@
             Request["Password"] == Request["RepeatPassword"])
         {
             //User Logic
+            var userLogic = DependencyResolver.Kernel.Get<IUserLogic>();
+            try
+            {
+                userLogic.Add(new ShareMate.Entities.User()
+                {
+                    Username = Request["Username"],
+                    Password = Request["Password"]
+                });
+                Response.Redirect("~/Pages/Login/RegistrationSuccess.cshtml");
+            }
+            catch
+            {
+                Response.Redirect("~/Pages/Login/RegistrationFailed.cshtml");
+            }
         }
     }
 }

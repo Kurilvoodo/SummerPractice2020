@@ -11,7 +11,7 @@ namespace ShareMate.DAL
 {
     public class AccessDao : IAccessDao
     {
-        private string _connectionString = @"Data Source";
+        private string _connectionString = @"Data Source=DESKTOP-QALPV5U\SQLEXPRESS;Initial Catalog=ShareMate;Integrated Security=True";
         public void Add(int IdUser, int IdFile)
         {
             using (var connection = new SqlConnection(_connectionString))
@@ -64,7 +64,7 @@ namespace ShareMate.DAL
             }
         }
 
-        public IEnumerable<Access> GetAccessByIdUser(int IdUser)
+        public IEnumerable<Access> GetAccessByIdUser(int IdUser) // исправить на менее тяжелую
         {
             using (var connection = new SqlConnection(_connectionString))
             {

@@ -1,7 +1,8 @@
 ﻿@using ShareMate.Entities
-@using ShareMate.BLL
+@using ShareMate.BLL.Interfaces
 @using ShareMate.Ioc
 @using ShareMate
+@using Ninject
 @{
     Layout = null;
 }
@@ -44,7 +45,22 @@
                 Request["Username"] != "" &&
                 Request["Password"] != "")
             {
-               //Code for User Logic
+                //Code for User Logic
+                var userLogic = DependencyResolver.Kernel.Get<IUserLogic>();
+                bool isUser = userLogic.Authentication(new User() 
+                {
+                    Username = Request["Username"] as string,
+                    Password = Request["Password"] as string
+                });
+                if (isUser)
+                {
+                    FormsAuthentication.SetAuthCookie(Request["Username"], createPersistentCookie: true);
+                    Response.Redirect("~");
+                }
+                else
+                {
+                    Response.Redirect("~/Pages/Login/SignInError.cshtml");
+                }
             }
         }
     }

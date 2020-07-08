@@ -11,5 +11,6 @@ namespace ShareMate.DAO.Interfaces
     {
         void Upload(File file);
         void Remove(int id);
+        File GetFileById(int id);
     }
 }

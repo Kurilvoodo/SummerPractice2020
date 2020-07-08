@@ -1,0 +1,23 @@
+﻿@using ShareMate.Entities
+@using ShareMate.BLL.Interfaces
+@using ShareMate.Ioc
+@using ShareMate
+@using Ninject
+@{
+    Layout = "~/Layouts/GeneralLayout.cshtml";
+}
+
+@section Header{}
+<body>
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <h1 class="h1-title"> To see your files you have to be Authenticated</h1>
+
+    }
+    else
+    {
+        var userLogic = DependencyResolver.Kernel.Get<IUserLogic>();
+        var fileLogic = DependencyResolver.Kernel.Get<IFileLogic>(); 
+        
+    }
+</body>

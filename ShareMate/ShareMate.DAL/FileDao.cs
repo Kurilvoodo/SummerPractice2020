@@ -12,11 +12,34 @@ namespace ShareMate.DAL
 {
     public class FileDao : IFileDao
     {
-        private string _connectionString = @"Data Source";
+        private string _connectionString = @"Data Source=DESKTOP-QALPV5U\SQLEXPRESS;Initial Catalog=ShareMate;Integrated Security=True";
+
+        public File GetFileById(int id)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                var command = connection.CreateCommand();
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandText = "dbo.GetFileById";
+
+                var idFileParameter = new SqlParameter()
+                {
+                    DbType = DbType.Int32,
+                    ParameterName = "@Id",
+                    Value = id,
+                    Direction = ParameterDirection.Input
+                };
+                command.Parameters.Add(id);
+                connection.Open();
+                var reader = command.ExecuteReader();
+                return null;
+            }
+        }
+
         public void Remove(int idFile)
         {
             AccessDao accessDao = new AccessDao(); //Поскольку мы удаляем файл из базы 
-            accessDao.FileHasBeenRemoved(idFile);//Нужно заранее удалить все доступы к нему у пользователей
+            accessDao.FileHasBeenRemoved(idFile);//Нужно заранее удалить все доступы к нему у пользователей \\\\ Заменить на каскадное удаление в бд
             // и не вызывать злобы Sql о том что удаляют Row  с зависимостями
             using (var connection = new SqlConnection(_connectionString))
             {

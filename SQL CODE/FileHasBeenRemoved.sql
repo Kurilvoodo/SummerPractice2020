@@ -1,0 +1,6 @@
+CREATE PROCEDURE FileHasBeenRemoved
+@ID INT
+AS
+BEGIN
+DELETE FROM Access WHERE IdFile = @ID
+END

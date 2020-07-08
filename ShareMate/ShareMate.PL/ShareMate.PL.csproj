@@ -91,6 +91,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\validateForm.js" />
     <Content Include="Styles\Login.css" />
     <Content Include="Styles\Style.css" />
     <Content Include="Web.config" />
@@ -103,6 +104,17 @@
     <Content Include="index.cshtml" />
     <None Include="packages.config" />
     <Content Include="Pages\Login\Authorization.cshtml" />
+    <Content Include="Pages\Login\SignIn.cshtml" />
+    <Content Include="Pages\Login\SignUp.cshtml" />
+    <Content Include="Pages\Login\SignInError.cshtml" />
+    <Content Include="Pages\Login\RegistrationSucces.cshtml" />
+    <Content Include="Pages\Login\RegistrationFailed.cshtml" />
+    <Content Include="Pages\MyFiles.cshtml" />
+    <Content Include="Pages\FileRequest.cshtml" />
+    <Content Include="Pages\Search.cshtml" />
+    <Content Include="Pages\ShareFile.cshtml" />
+    <Content Include="Pages\UploadFile.cshtml" />
+    <Content Include="Pages\Login\Logout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

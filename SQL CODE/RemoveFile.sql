@@ -1,0 +1,6 @@
+CREATE PROCEDURE RemoveFile
+@IdFile INT
+AS
+BEGIN
+ DELETE FROM Files WHERE Id = @IdFile
+END
