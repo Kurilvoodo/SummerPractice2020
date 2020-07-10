@@ -18,10 +18,12 @@ namespace ShareMate.Ioc
             Bind<IAccessDao>().To<AccessDao>();
             Bind<IFileDao>().To<FileDao>();
             Bind<IUserDao>().To<UserDao>();
+            Bind<IRequestDao>().To<RequestDao>();
 
             Bind<IAccessLogic>().To<AccessLogic>();
             Bind<IFileLogic>().To<FileLogic>();
             Bind<IUserLogic>().To<UserLogic>();
+            Bind<IRequestLogic>().To<RequestLogic>();
         }
     }
 }

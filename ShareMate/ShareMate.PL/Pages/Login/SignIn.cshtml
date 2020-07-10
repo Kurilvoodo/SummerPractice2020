@@ -3,6 +3,8 @@
 @using ShareMate.Ioc
 @using ShareMate
 @using Ninject
+@using System.Security.Cryptography
+@using System.Text
 @{
     Layout = null;
 }
@@ -13,7 +15,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Sign In</title>
-    <link href="~/Styles/Login.css" rel="stylesheet"/>
+    <link href="~/Styles/Login.css" rel="stylesheet" />
 </head>
 <body>
     <div class="content">
@@ -21,10 +23,11 @@
             <h1 class="h1-login">Sign In</h1>
             <form action="~/Pages/Login/SignIn.cshtml" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="Action" value="signin" />
-                <input required maxlength="30" minlength="4" class="sigin-form-input" type="text" id="username-signin" name="Username" value="" placeholder="Username" />
+                <label class="signin-form-label" >Username</label>
+                <input required maxlength="30" minlength="4" class="signin-form-input" type="text" id="username-signin" name="Username" value="" placeholder="Username" />
 
-                <label class="sigin-form-label" for="password-signin">Password</label>
-                <input required maxlength="30" minlength="4" class="sigin-form-input" type="password" id="password-signin" name="Password" value="" placeholder="Password" />
+                <label class="signin-form-label" >Password</label>
+                <input required maxlength="30" minlength="4" class="signin-form-input" type="password" id="password-signin" name="Password" value="" placeholder="Password" />
                 <button type="submit" class="button-sign-in">SignIn</button>
             </form>
             <form action="~/index.cshtml" method="post" enctype="multipart/form-data">
@@ -34,11 +37,11 @@
     </div>
 </body>
 </html>
-@{ 
+@{
     if (IsPost)
     {
-        if(Request["Action"]!=null &&
-            Request["Action"]== "signin")
+        if (Request["Action"] != null &&
+            Request["Action"] == "signin")
         {
             if (Request["Username"] != null &&
                 Request["Password"] != null &&
@@ -47,15 +50,21 @@
             {
                 //Code for User Logic
                 var userLogic = DependencyResolver.Kernel.Get<IUserLogic>();
-                bool isUser = userLogic.Authentication(new User() 
+                byte[] pass;
+                using (SHA256 sha256 = SHA256.Create())
+                {
+                    byte[] password = Encoding.Default.GetBytes(Request["Password"]);
+                    pass = sha256.ComputeHash(password);
+                }
+                bool isUser = userLogic.Authentication(new User()
                 {
                     Username = Request["Username"] as string,
-                    Password = Request["Password"] as string
+                    HashPassword = pass
                 });
                 if (isUser)
                 {
                     FormsAuthentication.SetAuthCookie(Request["Username"], createPersistentCookie: true);
-                    Response.Redirect("~");
+                    Response.Redirect("~/index.cshtml");
                 }
                 else
                 {

@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="IAccessLogic.cs" />
     <Compile Include="IFileLogic.cs" />
+    <Compile Include="IRequestLogic.cs" />
     <Compile Include="IUserLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

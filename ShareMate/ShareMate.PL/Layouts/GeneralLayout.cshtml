@@ -21,13 +21,11 @@
             @RenderSection("Header")
             
             <h1 class="h1-title">ShareMate.com</h1>
-            @if (User.Identity.IsAuthenticated)
+            @if(User.Identity.IsAuthenticated)
             {
-                <a href="~/Pages/" class="menu-element"></a>
-                User user = userLogic.GetUserByUsername(User.Identity.Name);
-                <div class="menu-element">
-                    @User.Identity.Name
-                </div>
+                <a href="~/Pages/" class="login-element"></a>
+                //User user = userLogic.GetUserByUsername(User.Identity.Name);
+                <div class="login-element"> @User.Identity.Name</div>
             }
             else
             {

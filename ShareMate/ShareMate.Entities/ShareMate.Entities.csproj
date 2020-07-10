@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Access.cs" />
     <Compile Include="File.cs" />
+    <Compile Include="Request.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

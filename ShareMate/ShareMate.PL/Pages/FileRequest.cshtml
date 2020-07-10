@@ -7,16 +7,23 @@
     Layout = "~/Layouts/GeneralLayout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-
-    </div>
-</body>
-</html>
+@section Header{}
+    <body>
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <h1 class="h1-title"> To see your Requests you have to Sign In</h1>
+        }
+        else
+        {
+            <h1 class="h1-title"> I Requested next files</h1>
+            var userLogic = DependencyResolver.Kernel.Get<IUserLogic>();
+            var fileLogic = DependencyResolver.Kernel.Get<IFileLogic>();
+            var requestLogic = DependencyResolver.Kernel.Get<IRequestLogic>();
+            foreach (var item in requestLogic.GetMyRequests(userLogic.GetIdByUsername(User.Identity.Name)))
+            {
+                <div class="file-row">
+                    @fileLogic.GetFileById(item.FileId).FileName from @userLogic.GetUserById(item.OwnerId)
+                </div>
+            }
+        }
+    </body>

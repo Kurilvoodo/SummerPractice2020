@@ -42,7 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccessDao.cs" />
+    <Compile Include="BaseDao.cs" />
     <Compile Include="FileDao.cs" />
+    <Compile Include="RequestDao.cs" />
     <Compile Include="UserDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

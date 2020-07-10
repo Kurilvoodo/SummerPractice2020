@@ -1,0 +1,38 @@
+﻿@using ShareMate.Entities;
+@using ShareMate.Ioc;
+@using Ninject;
+@using ShareMate.BLL.Interfaces;
+@{
+    Layout = null;
+    var accessLogic = DependencyResolver.Kernel.Get<IAccessLogic>();
+    var requestLogic = DependencyResolver.Kernel.Get<IRequestLogic>();
+    var userLogic = DependencyResolver.Kernel.Get<IUserLogic>();
+}
+@if (User.Identity.IsAuthenticated)
+{
+    if (IsPost)
+    {
+        int _requestId;
+        int _fileId;
+        if (Request["Action"] != null &&
+            Request["Action"] == "GiveAccess" &&
+            int.TryParse(Request["RequestId"], out _requestId) &&
+            int.TryParse(Request["FileId"], out _fileId))
+        {
+            accessLogic.Add(_requestId, _fileId);
+            Request request = new Request()
+            {
+                RequestId = _requestId,
+                FileId = _fileId,
+                OwnerId = userLogic.GetIdByUsername(User.Identity.Name)
+            };
+            requestLogic.RemoveRequest(request);
+            Response.Redirect("~/Pages/ShareFile.cshtml");
+        }
+    }
+}
+else
+{
+    Response.Redirect("~/index.cshtml");
+}
+

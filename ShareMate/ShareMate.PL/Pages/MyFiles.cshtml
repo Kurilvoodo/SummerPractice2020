@@ -5,6 +5,9 @@
 @using Ninject
 @{
     Layout = "~/Layouts/GeneralLayout.cshtml";
+    var userLogic = DependencyResolver.Kernel.Get<IUserLogic>();
+    var fileLogic = DependencyResolver.Kernel.Get<IFileLogic>();
+    var accessLogic = DependencyResolver.Kernel.Get<IAccessLogic>();
 }
 
 @section Header{}
@@ -16,8 +19,18 @@
     }
     else
     {
-        var userLogic = DependencyResolver.Kernel.Get<IUserLogic>();
-        var fileLogic = DependencyResolver.Kernel.Get<IFileLogic>(); 
-        
+        int idUser = userLogic.GetIdByUsername(User.Identity.Name);
+        foreach (int item in accessLogic.GetAccessByIdUser(idUser))
+        {
+            <div class="file-row">
+                @fileLogic.GetFileById(item).FileName
+                <a href="~/Pages/MyFilesLogic/DownloadFile.cshtml" class="download-file-button">Download</a>
+                <form action="~/Pages/MyFilesLogic/DeleteFile.cshtml" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="Action" value="DeleteFile">
+                    <input type="hidden" name="FileId" value="@item">
+                    <button type="submit">Delete the file from website</button>
+                </form>
+            </div>
+        }
     }
 </body>

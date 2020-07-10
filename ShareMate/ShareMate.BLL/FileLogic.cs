@@ -22,9 +22,14 @@ namespace ShareMate.BLL
             return _fileDao.GetFileById(id);
         }
 
-        public void Remove(int id)
+        public int GetFileIdByOwnerId(int id)
         {
-            _fileDao.Remove(id);
+            return _fileDao.GetFileIdByOwnerId(id);
+        }
+
+        public void Remove(int idFile)
+        {
+            _fileDao.Remove(idFile);
         }
 
         public void Upload(File file)

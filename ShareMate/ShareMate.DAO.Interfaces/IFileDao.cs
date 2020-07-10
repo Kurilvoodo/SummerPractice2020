@@ -10,7 +10,8 @@ namespace ShareMate.DAO.Interfaces
     public interface IFileDao
     {
         void Upload(File file);
-        void Remove(int id);
+        void Remove(int idFile);
         File GetFileById(int id);
+        int GetFileIdByOwnerId(int id);
     }
 }

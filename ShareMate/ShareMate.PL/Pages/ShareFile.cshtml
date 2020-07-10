@@ -7,16 +7,37 @@
     Layout = "~/Layouts/GeneralLayout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
+@section Header{}
 <body>
-    <div>
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <h1 class="h1-title">To see Requests for your files you have to Sign In</h1>
+    }
+    else
+    {
+        <h1 class="h1-title"> Next users requested acces for next files:</h1>
+        var userLogic = DependencyResolver.Kernel.Get<IUserLogic>();
+        var fileLogic = DependencyResolver.Kernel.Get<IFileLogic>();
+        var requestLogic = DependencyResolver.Kernel.Get<IRequestLogic>();
+        foreach (var item in requestLogic.GetOwnerRequests(userLogic.GetIdByUsername(User.Identity.Name)))
+        {
+            <div class="file-row">
+                @fileLogic.GetFileById(item.FileId).FileName from @userLogic.GetUserById(item.RequestId).Username
+                <form action="~/Pages/ShareFileLogic/GiveAccessRights.cshtml" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="Action" value="GiveAccess">
+                    <input type="hidden" name="FileId" value="@item.FileId">
+                    <input type="hidden" name="RequestId" value="@item.RequestId">
+                    <button type="submit" >Give Access Rights</button>
+                </form>
+                <form action="~/Pages/ShareFileLogic/DenyAccessRights.cshtml" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="Action" value="DenyAccess">
+                    <input type="hidden" name="FileId" value="@item.FileId">
+                    <input type="hidden" name="RequestId" value="@item.RequestId">
+                    <button type="submit">Deny Access Rights</button>
+                </form>
+            </div>
+        }
 
-    </div>
+
+    }
 </body>
-</html>

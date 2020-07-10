@@ -12,7 +12,7 @@ namespace ShareMate.BLL.Interfaces
         void Add(int IdUser, int IdFile);
         void Remove(int IdUser, int IdFile);
         void FileHasBeenRemoved(int IdFile);
-        IEnumerable<Access> GetAccessByIdUser(int IdUser);
+        IEnumerable<int> GetAccessByIdUser(int IdUser);
 
     }
 }

@@ -107,7 +107,7 @@
     <Content Include="Pages\Login\SignIn.cshtml" />
     <Content Include="Pages\Login\SignUp.cshtml" />
     <Content Include="Pages\Login\SignInError.cshtml" />
-    <Content Include="Pages\Login\RegistrationSucces.cshtml" />
+    <Content Include="Pages\Login\RegistrationSuccess.cshtml" />
     <Content Include="Pages\Login\RegistrationFailed.cshtml" />
     <Content Include="Pages\MyFiles.cshtml" />
     <Content Include="Pages\FileRequest.cshtml" />
@@ -115,6 +115,12 @@
     <Content Include="Pages\ShareFile.cshtml" />
     <Content Include="Pages\UploadFile.cshtml" />
     <Content Include="Pages\Login\Logout.cshtml" />
+    <Content Include="Pages\MyFilesLogic\DownloadFile.cshtml" />
+    <Content Include="Pages\UploadFileLogic\Uploading.cshtml" />
+    <Content Include="Pages\ShareFileLogic\GiveAccessRights.cshtml" />
+    <Content Include="Pages\ShareFileLogic\DenyAccessRights.cshtml" />
+    <Content Include="Pages\MyFilesLogic\DeleteFile.cshtml" />
+    <Content Include="Pages\SearchLogic\SearchScript.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -122,7 +128,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Pages\FileRequestLogic\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ShareMate.BLL.Interfaces\ShareMate.BLL.Interfaces.csproj">
       <Project>{33af990a-617d-4946-9df0-809bd93dcf25}</Project>

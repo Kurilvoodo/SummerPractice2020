@@ -10,9 +10,8 @@ namespace ShareMate.Entities
     {
         public int Id { get; set; }
         public string Username { get; set; }
-        public string Password { get; set; } //Убрать и фигачить в байты рекомендация
         public byte[] HashPassword { get; set; }
 
-        List<int> FileId { get; }
+        List<int> FileId { get; } //сюда список айдишников доступных файлов из логики AccessLogic
     }
 }

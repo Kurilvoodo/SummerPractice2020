@@ -1,0 +1,31 @@
+﻿@using ShareMate.Entities
+@using ShareMate.BLL.Interfaces
+@using ShareMate.Ioc
+@using ShareMate
+@using Ninject
+@{
+    Layout = "~/Layouts/GeneralLayout.cshtml";
+    var fileLogic = DependencyResolver.Kernel.Get<IFileLogic>();
+    
+}
+
+@section Header{}
+@if (User.Identity.IsAuthenticated)
+{
+    if (IsPost)
+    {
+
+        int _fileId;
+        if (Request["Action"] != null &&
+            Request["Action"] == "DeleteFile" &&
+            int.TryParse(Request["FileId"], out _fileId))
+        {
+            fileLogic.Remove(_fileId);
+            <h1 class="h1-title">File has been Removed. All Accesses are Denied.</h1>
+        }
+    }
+}
+else
+{
+    Response.Redirect("~/index.cshtml");
+}

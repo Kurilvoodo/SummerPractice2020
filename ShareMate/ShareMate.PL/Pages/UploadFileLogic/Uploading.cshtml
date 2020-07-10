@@ -1,0 +1,33 @@
+﻿@using ShareMate.Entities;
+@using ShareMate.Ioc;
+@using Ninject;
+@using ShareMate.BLL.Interfaces;
+@{
+    Layout = null;
+    var accessLogic = DependencyResolver.Kernel.Get<IAccessLogic>();
+    var fileLogic = DependencyResolver.Kernel.Get<IFileLogic>();
+    var userLogic = DependencyResolver.Kernel.Get<IUserLogic>();
+}
+@if (User.Identity.IsAuthenticated)
+{
+    @if (IsPost)
+    {
+        if (Request["Action"] != null &&
+            Request["Action"] == "Upload")
+        {
+
+            ShareMate.Entities.File file = new ShareMate.Entities.File()
+            {
+                FileName = Request["Filename"],
+                OwnerId = userLogic.GetIdByUsername(User.Identity.Name)
+            };
+            fileLogic.Upload(file);
+            accessLogic.Add(file.OwnerId, fileLogic.GetFileIdByOwnerId(file.OwnerId));
+            Response.Redirect("~/Pages/MyFiles.cshtml");
+        }
+    }
+}
+else
+{
+    Response.Redirect("~/index.cshtml");
+}

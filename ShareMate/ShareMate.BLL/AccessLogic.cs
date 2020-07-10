@@ -27,7 +27,7 @@ namespace ShareMate.BLL
             _accessDao.FileHasBeenRemoved(IdFile);
         }
 
-        public IEnumerable<Access> GetAccessByIdUser(int IdUser)
+        public IEnumerable<int> GetAccessByIdUser(int IdUser)
         {
             return _accessDao.GetAccessByIdUser(IdUser);
         }

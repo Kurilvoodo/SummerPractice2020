@@ -6,7 +6,7 @@
 
 .h1-login {
     text-align: center;
-    padding: 13px 0 9px 0;
+    padding: 8px 0 4px 0;
     color: aliceblue;
     font: normal small-caps 26px/28px fantasy;
     text-shadow: black 0 0 2px;
@@ -14,7 +14,7 @@
 
 .content {
     padding-top: 67px;
-    min-height: 400px;
+    min-height: 600px;
     height: calc(100vh - 187px);
     background: rgb(55,55,55);
 }
@@ -22,10 +22,11 @@
 .container-for-buttons {
     background-color: rgb(0,147,255);
     width: 500px;
-    height: 340px;
+    height: 420px;
     margin: auto;
     border-radius: 25px;
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.76);
+    padding:10px;
 }
 
 .button-sign-in, .button-sign-up {
@@ -45,6 +46,7 @@
     text-shadow: black 17px 10px 18px;
     background: rgb(55,55,55);
     margin-bottom: 10px;
+    
 }
     .button-sign-in:hover {
         box-shadow: 0 0 10px rgba(240,248,255,1.5);
@@ -62,7 +64,13 @@
         border-bottom: 3px solid #f0f8ff; /* Параметры линии */
         text-shadow: white 2px 3px 8px;
     }
-.sigin-form-label, .signup-form-label {
-    text-align: center;
+.signin-form-label, .signup-form-label {
+    margin-left:44%;
     padding-bottom: 5px;
+}
+.signin-form-input {
+    width: 90%;
+    height: 25px;
+    border-radius: 15px;
+    margin-left: 4%
 }
