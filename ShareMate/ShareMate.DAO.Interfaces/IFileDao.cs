@@ -12,6 +12,7 @@ namespace ShareMate.DAO.Interfaces
         void Upload(File file);
         void Remove(int idFile);
         File GetFileById(int id);
-        int GetFileIdByOwnerId(int id);
+        int GetFileIdByOwnerId(int id, string filename);
+        IEnumerable<File> Search(string search);
     }
 }

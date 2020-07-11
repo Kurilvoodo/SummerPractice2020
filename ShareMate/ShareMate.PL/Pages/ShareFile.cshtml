@@ -5,6 +5,9 @@
 @using Ninject
 @{
     Layout = "~/Layouts/GeneralLayout.cshtml";
+    var userLogic = DependencyResolver.Kernel.Get<IUserLogic>();
+    var fileLogic = DependencyResolver.Kernel.Get<IFileLogic>();
+    var requestLogic = DependencyResolver.Kernel.Get<IRequestLogic>();
 }
 
 @section Header{}
@@ -16,9 +19,7 @@
     else
     {
         <h1 class="h1-title"> Next users requested acces for next files:</h1>
-        var userLogic = DependencyResolver.Kernel.Get<IUserLogic>();
-        var fileLogic = DependencyResolver.Kernel.Get<IFileLogic>();
-        var requestLogic = DependencyResolver.Kernel.Get<IRequestLogic>();
+
         foreach (var item in requestLogic.GetOwnerRequests(userLogic.GetIdByUsername(User.Identity.Name)))
         {
             <div class="file-row">
@@ -27,7 +28,7 @@
                     <input type="hidden" name="Action" value="GiveAccess">
                     <input type="hidden" name="FileId" value="@item.FileId">
                     <input type="hidden" name="RequestId" value="@item.RequestId">
-                    <button type="submit" >Give Access Rights</button>
+                    <button type="submit">Give Access Rights</button>
                 </form>
                 <form action="~/Pages/ShareFileLogic/DenyAccessRights.cshtml" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="Action" value="DenyAccess">

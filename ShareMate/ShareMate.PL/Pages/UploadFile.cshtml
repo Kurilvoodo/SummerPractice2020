@@ -8,19 +8,20 @@
 }
 
 @section Header{}
-<body>
-    @if (!User.Identity.IsAuthenticated)
-    {
-        <h1 class="h1-title">To upload any File you have to Sign In</h1>
-    }
-    else
-    {
-        <form action="~/Pages/UploadFileLogic/Uploading.cshtml" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="Action" value="Upload" />
-            
-            <label class="signin-form-label">Enter FileName</label>
-            <input required maxlength="30" minlength="4" class="signin-form-input" type="text" id="username-signin" name="Filename" value="" placeholder="File name" />
-            <button type="submit" class="button-sign-in">SignIn</button>
-        </form>
-    }
-</body>
+    <body>
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <h1 class="h1-title">To upload any File you have to Sign In</h1>
+        }
+        else
+        {
+            <h1 class="h1-title">Enter FileName</h1>
+            <form action="~/Pages/UploadFileLogic/Uploading.cshtml" method="post" enctype="multipart/form-data">
+                <input type="hidden"  name="Action" value="Upload" />
+
+                
+                <input required maxlength="30" minlength="4" class="signin-form-input" type="text" id="username-signin" name="Filename" value="" placeholder="File name" />
+                <button type="submit" class="button-sign-in"> Upload my File</button>
+            </form>
+        }
+    </body>

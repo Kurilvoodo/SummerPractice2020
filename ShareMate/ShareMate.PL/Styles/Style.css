@@ -113,30 +113,29 @@ header {
     display: block;
 }
 
-.file-row{
+.file-row {
     position: relative;
-    border-radius:15px 15px 15px 15px;
-    width:90%;
-    height:30px;
-    border-color:aquamarine;
+    border-radius: 15px 15px 15px 15px;
+    border-color: aquamarine;
+    width: 90%;
+    height: 37px;
+    padding: 20px;
+    background: rgb(55,55,55);
+    margin-left: 3.5%;
+    margin-bottom: 16px;
 }
 .download-file-button {
-    position: relative;
-    display: inline-block;
-    margin-top: 0.5%;
-    margin-left: 3.25%;
-    padding: 19px;
+    height: 37px;
+    width: 71px;
+    margin: auto;
+    border-radius: 20px;
+    border-color: aliceblue;
     text-decoration: none;
     color: aliceblue;
+    font: normal small-caps 25px/28px fantasy;
+    background: rgb(55, 55, 55);
+    margin-top: -33px;
     float: right;
-    border-radius: 15px 15px 15px 15px;
-    border-left: 3px solid #0093ff;
-    border-right: 3px solid #0093ff;
-    border-top: 3px solid #0093ff;
-    border-bottom: 3px solid #0093ff;
-    font: normal small-caps 26px/28px fantasy;
-    text-shadow: black 0 0 2px;
-    margin-bottom: 0.5%;
 }
 .search[type=text]{
     transition: width 0.4s ease-in-out;
@@ -144,4 +143,9 @@ header {
 .search[type=text]:focus{
     width:100%;
 }
-
+.text-in-row {
+    font: normal small-caps 30px/4px fantasy;
+    text-shadow: black 0 0 2px;
+    color: aliceblue;
+    padding: 16px;
+}

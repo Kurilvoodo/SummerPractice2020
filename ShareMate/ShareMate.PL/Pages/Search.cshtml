@@ -5,10 +5,51 @@
 @using Ninject
 @{
     Layout = "~/Layouts/GeneralLayout.cshtml";
+    var fileLogic = DependencyResolver.Kernel.Get<IFileLogic>();
+    var userLogic = DependencyResolver.Kernel.Get<IUserLogic>();
 }
 
 @section Header{}
-<form>
-    <input type="text" class="search" />
+<form action="~/Pages/Search.cshtml" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="Action" value="Search">
+    <input type="text" name="Search" class="search" value="" />
     <button type="submit"> Search!</button>
 </form>
+<body>
+    @if (IsPost)
+    {
+        if (Request["Action"] != null &&
+            Request["Action"] != "" &&
+            Request["Action"] == "Search" &&
+           Request["Search"] != null &&
+           Request["Search"] != "")
+        {
+            foreach (var item in fileLogic.Search(Request["Search"]))
+            {
+                <div class="file-row">
+                    <div class="text-in-row">
+
+                        @item.FileName Owner is @userLogic.GetUserById(item.OwnerId).Username
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <form action="~/Pages/FileRequestLogic/AddRequest.cshtml" method="post" enctype="multipart/form-data">
+                                <input type="hidden" name="Action" value="Request" />
+                                <input type="hidden" name="FileId" value="@item.Id">
+                                <input type="hidden" name="OwnerId" value="@item.OwnerId" />
+                                <input type="hidden" name="RequestId" value="@userLogic.GetIdByUsername(User.Identity.Name)" />
+                                <button class="download-file-button"> Request Access</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <div class="text-in-row">
+                                To Ask request you have to sign in
+                            </div>
+                        }
+                    </div>
+                </div>
+
+            }
+        }
+    }
+</body>

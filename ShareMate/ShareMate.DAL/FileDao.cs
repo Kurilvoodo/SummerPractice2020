@@ -32,16 +32,24 @@ namespace ShareMate.DAL
             }
         }
 
-        public int GetFileIdByOwnerId(int id)
+        public int GetFileIdByOwnerId(int id, string filename) //здесь не хватает filename для точности иначе он вытаскивает первый попавшийся убрать Execute Scalar yf nonquery
         {
-            using (var connection= new SqlConnection(_connectionString))
+            using (var connection = new SqlConnection(_connectionString))
             {
                 SqlCommand command = GetCommand(connection, "dbo.GetFileIdByOwnerId");
                 AddParameter(GetParameter("@Id", id, DbType.Int32), command);
+                AddParameter(GetParameter("@FileName", filename, DbType.String), command);
                 connection.Open();
-                return (int)command.ExecuteScalar();
+                var reader = command.ExecuteReader();
+                int result=0;
+                while (reader.Read())
+                {
+                    result = (int)reader["Id"];
+                }
+
+                return result;
             }
-                
+
         }
 
         public void Remove(int idFile)
@@ -57,6 +65,29 @@ namespace ShareMate.DAL
                 command.ExecuteNonQuery();
             }
         }
+
+        public IEnumerable<File> Search(string search)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = GetCommand(connection, "dbo.Search");
+                AddParameter(GetParameter("@Search", search, DbType.String), command);
+                connection.Open();
+                List<File> files = new List<File>();
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    files.Add(new File()
+                    {
+                        FileName = reader["FileName"] as string,
+                        Id = (int)reader["Id"],
+                        OwnerId = (int)reader["OwnerId"]
+                    });
+                }
+                return files;
+            }
+        }
+
         public void Upload(File file)
         {
             using (var connection = new SqlConnection(_connectionString))

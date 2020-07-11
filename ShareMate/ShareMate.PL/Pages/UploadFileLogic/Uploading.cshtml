@@ -10,7 +10,7 @@
 }
 @if (User.Identity.IsAuthenticated)
 {
-    @if (IsPost)
+    if (IsPost)
     {
         if (Request["Action"] != null &&
             Request["Action"] == "Upload")
@@ -22,7 +22,7 @@
                 OwnerId = userLogic.GetIdByUsername(User.Identity.Name)
             };
             fileLogic.Upload(file);
-            accessLogic.Add(file.OwnerId, fileLogic.GetFileIdByOwnerId(file.OwnerId));
+            accessLogic.Add(file.OwnerId, fileLogic.GetFileIdByOwnerId(file.OwnerId,file.FileName));
             Response.Redirect("~/Pages/MyFiles.cshtml");
         }
     }

@@ -1,7 +1,7 @@
 USE [master]
 GO
 
-/****** Object:  Database [ShareMate]    Script Date: 10.07.2020 22:39:04 ******/
+/****** Object:  Database [ShareMate]    Script Date: 11.07.2020 21:05:50 ******/
 CREATE DATABASE [ShareMate]
  CONTAINMENT = NONE
  ON  PRIMARY 

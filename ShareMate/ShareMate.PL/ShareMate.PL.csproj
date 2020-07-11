@@ -121,6 +121,7 @@
     <Content Include="Pages\ShareFileLogic\DenyAccessRights.cshtml" />
     <Content Include="Pages\MyFilesLogic\DeleteFile.cshtml" />
     <Content Include="Pages\SearchLogic\SearchScript.cshtml" />
+    <Content Include="Pages\FileRequestLogic\AddRequest.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -128,9 +129,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\FileRequestLogic\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ShareMate.BLL.Interfaces\ShareMate.BLL.Interfaces.csproj">
       <Project>{33af990a-617d-4946-9df0-809bd93dcf25}</Project>
