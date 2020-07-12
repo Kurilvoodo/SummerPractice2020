@@ -1,17 +1,41 @@
-﻿@{
-    Layout = null;
+﻿@using ShareMate.Entities
+@using ShareMate.BLL.Interfaces
+@using ShareMate.Ioc
+@using ShareMate
+@using Ninject
+@{
+    Layout = "~/Laytous/GeneralLayout.cshtml";
+    var requestLogic = DependencyResolver.Kernel.Get<IRequestLogic>();
 }
 
-<!DOCTYPE html>
+@section Header{}
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title></title>
-</head>
-<body>
-    <div>
-    
-    </div>
-</body>
-</html>
+@if (IsPost)
+{
+
+    if (Request["Action"] == "Request" &&
+        Request["FileId"] != null &&
+        Request["FileId"] != "" &&
+        int.TryParse(Request["FileId"], out var _fileId) &&
+        Request["OwnerId"] != null &&
+        Request["OwnerId"] != "" &&
+        int.TryParse(Request["OwnerId"], out var _ownerId) &&
+        Request["RequestId"] != null &&
+        Request["RequestId"] != "" &&
+        int.TryParse(Request["RequestId"], out var _requestId)
+        )
+    {
+        Request _request = new Request()
+        {
+            FileId = _fileId,
+            OwnerId = _ownerId,
+            RequestId = _requestId
+        };
+        requestLogic.AddRequest(_request);
+        Response.Redirect("~/Pages/FileRequest.cshtml");
+    }
+    else
+    {
+        Response.Redirect("~/Pages/Search.cshtml");
+    }
+}

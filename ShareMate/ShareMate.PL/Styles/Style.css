@@ -118,7 +118,7 @@ header {
     border-radius: 15px 15px 15px 15px;
     border-color: aquamarine;
     width: 90%;
-    height: 37px;
+    height: 70px;
     padding: 20px;
     background: rgb(55,55,55);
     margin-left: 3.5%;
@@ -136,6 +136,7 @@ header {
     background: rgb(55, 55, 55);
     margin-top: -33px;
     float: right;
+    padding: 20px;
 }
 .search[type=text]{
     transition: width 0.4s ease-in-out;

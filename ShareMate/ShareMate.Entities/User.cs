@@ -12,6 +12,6 @@ namespace ShareMate.Entities
         public string Username { get; set; }
         public byte[] HashPassword { get; set; }
 
-        List<int> FileId { get; } //сюда список айдишников доступных файлов из логики AccessLogic
+        List<int> FileId { get; set; } //сюда список айдишников доступных файлов из логики AccessLogic
     }
 }

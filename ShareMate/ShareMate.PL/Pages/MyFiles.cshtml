@@ -20,16 +20,19 @@
     else
     {
         int idUser = userLogic.GetIdByUsername(User.Identity.Name);
+        //var mydegub = accessLogic.GetAccessByIdUser(idUser);
         foreach (int item in accessLogic.GetAccessByIdUser(idUser))
         {
             <div class="file-row">
-                @fileLogic.GetFileById(item).FileName
-                <a href="~/Pages/MyFilesLogic/DownloadFile.cshtml" class="download-file-button">Download</a>
-                <form action="~/Pages/MyFilesLogic/DeleteFile.cshtml" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="Action" value="DeleteFile">
-                    <input type="hidden" name="FileId" value="@item">
-                    <button type="submit" class="download-file-button">Delete</button>
-                </form>
+                <div class="text-in-row">
+                    @fileLogic.GetFileById(item).FileName
+                    <a href="~/Pages/MyFilesLogic/DownloadFile.cshtml" class="download-file-button">Download</a>
+                    <form action="~/Pages/MyFilesLogic/DeleteFile.cshtml" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="Action" value="DeleteFile">
+                        <input type="hidden" name="FileId" value="@item">
+                        <button type="submit" class="download-file-button">Delete</button>
+                    </form>
+                </div>
             </div>
         }
     }
